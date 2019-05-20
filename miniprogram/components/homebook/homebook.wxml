@@ -1,0 +1,18 @@
+<!--miniprogram/components/homebook/homebook.wxml-->
+<view class="home-book" bindtap="handleDetail" data-index="{{books.fiction_id}}">
+  <view class="book-cover">
+    <image  src="{{books.fiction_img}}" binderror="errImg"  mode="scaleToFill" data-out-index="{{outIndex}}" data-inner-index="{{innerIndex}}" onerror=""></image>
+    <view wx:if="{{!isEdit}}" class="book-share"></view>
+    <!-- 添加icon展示 -->
+    <view wx:if="{{!isStore && isCur == 1}}
+  class="icon-add-book" catchtap="handleRead" data-fiction_id="{{books.fiction_id}}"></view>
+  <!-- 删除icon展示 -->
+  <view class="icon-remove-book" wx:if="{{!isEdit && isCur == 0}}" catchtap="handleRemove" data-index="{{books.fiction_id}}"></view>
+</view>
+  <view class="name">
+    <text>{{books.fiction_name}}</text>
+  </view>
+  <view class="author">
+    <text>{{books.fiction_author}}</text>
+  </view>
+</view>

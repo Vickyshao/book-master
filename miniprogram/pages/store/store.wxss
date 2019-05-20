@@ -1,0 +1,72 @@
+/* miniprogram/pages/store/store.wxss */
+.store-page{
+  position: relative;
+}
+.topTabSwiper{
+  display:flex;
+  border-top: 2rpx solid #d7d7d7;
+  border-bottom: 2rpx solid #d7d7d7; 
+  zoom: 1;
+  position:fixed;
+  top:0rpx;
+  left:0rpx;
+  right:0rpx;
+  z-index:100 !important;
+  background:#fff;
+}
+.tab-book-item{
+  flex:1;
+  text-align: center;
+  font-size:32rpx;
+  line-height:88rpx;
+  color:#222;
+}
+.tab-active{
+  border-bottom: 1px solid #EA5149;
+ color:#EA5149;
+}
+.swiper{
+  width: 100%;
+  margin-top:182rpx;
+}
+.swiper_con{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 26rpx 0;
+}
+/* 操作相关样式 */
+.operation-wrap{
+  position: fixed;
+  left:0rpx;
+  right:0rpx;
+  top:94rpx;
+  display:flex;
+  padding:0rpx 32rpx;
+  background:#f2f2f2;
+  justify-content: center;
+  align-items: center;
+  z-index:9999 !important;
+}
+.operation-wrap .count{
+  flex:1;
+  height:80rpx;
+  font-size:28rpx;
+  color:#868686;
+  line-height:80rpx;
+}
+.operation-wrap .clear-all-book{
+  margin-right:40rpx;
+}
+.operation-wrap .clear-all-book,
+.operation-wrap .edit{
+  flex: 0 0 180rpx;
+  width: 180rpx;
+  border:0.5rpx solid #EA5149;
+  border-radius:32rpx;
+  line-height:50rpx;
+  text-align:center;
+  color:#EA5149;
+  font-size: 28rpx;
+  background-color: #fff;
+}

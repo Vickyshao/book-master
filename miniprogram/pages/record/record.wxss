@@ -1,0 +1,23 @@
+/* miniprogram/pages/record/record.wxss */
+.record-page{
+  position: relative;
+  overflow-y:　scroll;
+}
+.record-page .list-item{
+  display:flex;
+  border-bottom:2rpx solid #f7f7f7;
+  padding: 0 30rpx;
+} 
+.record-page view text{
+  line-height:100rpx;
+  color:#666;
+  font-size:28rpx;
+}
+.record-page view .desc{
+  flex:1;
+}
+.record-page view .time{
+  flex:0 0 290rpx;
+  min-width:290rpx;
+  text-align: right;
+}

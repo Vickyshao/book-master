@@ -1,0 +1,85 @@
+<!--miniprogram/pages/reading/reading.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="read-page　{{skin}}" style="{{(fictionRead.auto_pay == 0 && fictionRead.is_pay == 1) || (fictionRead.auto_pay == 1 && fictionRead.is_pay == 3) ? 'height:100vh' : 'min-height: 100vh'}} ">
+  <scroll-view scroll-y bindtap="handleSet">
+    <!-- <view class="novel-wrap" bindtap="handleSet"> -->
+      <text class="novel-title">{{fictionRead.title}}</text>
+      <!--小说内容展示 -->
+      <view class="novel-article"  style="font-size:{{fontSize}}rpx;">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    <!-- </view> -->
+    <view wx:if="{{fictionRead.is_pay == 1 || fictionRead.is_pay == 3}}">
+        <!-- 剩余积分小于抵扣积分展示-->
+        <view class="title-info">
+            <view class="consume">
+                <text>阅读本章节需要消耗{{fictionRead.chapter_cost}}积分</text>
+            </view>
+            <view class="integral">
+                <text>我的积分 : {{fictionRead.user_score}}积分</text> 
+            </view>
+            <view class="deduction" catchtap="checkboxChange">
+                <checkbox-group bindchange="checkboxChange" wx:if="{{(isSupportRecharge && fictionRead.is_pay != 3) || !isSupportRecharge &&( fictionRead.is_pay ==1 && fictionRead.user_score >= fictionRead.chapter_cost)}}">
+                    <label class="checkbox" wx:for="{{deduction}}" wx:key="item.name">
+                        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                    </label>
+                </checkbox-group>
+                <view class="go-btn">
+                    <text wx:if="{{isSupportRecharge}}" class="keep-btn" catchtap="handleRead">{{fictionRead.is_pay == 3 || (fictionRead.is_pay == 1 && fictionRead.auto_pay == 0 && fictionRead.user_score <= 0) ? '积分充值' :'继续阅读'}}</text>
+                    <text wx:if="{{!isSupportRecharge &&( fictionRead.is_pay == 1 && fictionRead.user_score >= fictionRead.chapter_cost)}}" class="keep-btn" catchtap="keepUpRead">继续阅读</text>
+                  <button class="share-btn" open-type="share">分享好友获取积分免费看</button>
+                </view>
+            </view>
+        </view>
+    </view>
+  </scroll-view>
+    <!--积分部分 -->
+    <view wx:if="{{!(fictionRead.is_pay == 1 || fictionRead.is_pay == 3)}}" class="btn-group">
+        <view class="prev" data-prev="prev" catchtap="handleChapter">
+            <text class="{{!isHasPrev ? 'disabled':''}}">上一章</text>
+        </view>
+        <view class="directory" catchtap="handleDir">
+            <image src="../../images/u645.png" mode="widthFix"></image>
+            <text>目录</text>
+        </view>
+        <view class="next" data-prev="next" catchtap="handleChapter">
+            <text>{{!fictionRead.next_chapter_id ?'已是最后一章':'下一章'}}</text>
+        </view>
+    </view>
+    <!-- 设置弹框 -->
+    <view class="mask-wrap" wx:if="{{isMask && !(fictionRead.is_pay == 1 || fictionRead.is_pay == 3)}}" style="overflow:visible">
+      <view class="go-book-store arrow-pub" catchtap="handleStore">
+        <text>去书城</text>
+      </view>
+       <view wx:if="{{fictionRead.collection_id == 0}}"  class="add-book-store arrow-pub">
+        <text catchtap="handleJoin" data-fiction_id="{{fiction_id}}">加入书架</text>
+      </view>
+       <view class="mask-main">
+          <view class="size-color">
+            <view class="font-size">
+              <text class="reduc" catchtap="handleReduc">Aa-</text>
+              <text class="num"> {{showSize}} </text>
+              <text class="reduc" catchtap="handleAdd">Aa+</text>
+            </view>
+            <view class="color-wrap">
+              <text class="gray {{skin == 'white-skin' ? 'active':''}}" data-skin="white" catchtap="handleColor"></text>
+              <text class="pink {{skin == 'default-skin' ? 'active':''}}"  data-skin="yellow" catchtap="handleColor" ></text>
+              <text class="blue {{skin == 'green-skin' ? 'active':''}}" data-skin="green" catchtap="handleColor" ></text>
+              <text class="black {{skin == 'black-skin' ? 'active':''}}" data-skin="black" catchtap="handleColor"></text>
+            </view>
+          </view>
+           <view class="btn-group-mask">
+                <view class="prev" data-prev="prev" catchtap="handleChapter">
+                    <text class="{{fictionRead.last_catalog_id == 0 ? 'disabled':''}}">上一章</text>
+                </view>
+                <view class="directory" catchtap="handleDir">
+                    <image src="../../images/u645.png" mode="widthFix"></image>
+                    <text>目录</text>
+                </view>
+                <view class="next" data-prev="next" catchtap="handleChapter">
+                    <text>{{!fictionRead.next_chapter_id ?'已是最后一章':'下一章'}}</text>
+                </view>
+            </view>
+      </view>
+    </view>
+</view>

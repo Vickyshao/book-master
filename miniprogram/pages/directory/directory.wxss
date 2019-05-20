@@ -1,0 +1,65 @@
+/* miniprogram/pages/directory/directory.wxss */
+.directory-page{
+  position: relative;
+}
+.directory-empty {
+  display: block;
+  padding: 40px;
+  font-size: 32rpx;
+}
+.directory{
+  display:flex;
+  border-bottom:2rpx solid #f7f7f7;
+}
+.directory text{
+  flex:1;
+  color:#333333;
+  font-size:36rpx;
+  line-height:100rpx;
+  padding-left:30rpx;
+}
+.directory image{
+  flex:0 0 44rpx;
+  width:44rpx;
+  height:44rpx;
+  margin-top:28rpx;
+  margin-right:36rpx;
+}
+.dir-list{
+  position:relative;
+}
+.dir-list .list{
+  display:flex;
+  border-bottom:2rpx solid #e4e4e4;
+  padding:0 30rpx;
+  line-height:100rpx;
+  font-size:32rpx;
+  color:#222;
+}
+.dir-list .list.active {
+  color:#EA5149;
+}
+.dir-list .list .sort{
+  flex:0 0 120rpx;
+}
+.dir-list .list .title{
+  flex:1;
+  min-width: 200rpx;
+  padding-right: 20rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.dir-list .list .is-pay{
+  flex: 0 0 60rpx;
+  font-size: 30rpx;
+  color:#EA5149;
+}
+
+.button-group {
+  padding: 30rpx;
+  text-align: center;
+}
+.m-l-6 {
+  margin-left: 60rpx;
+}

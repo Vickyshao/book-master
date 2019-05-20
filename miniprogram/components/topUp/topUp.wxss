@@ -1,0 +1,61 @@
+/* components/top-up/topUp.wxss */
+.top-up-page{
+  position: relative;
+  /* width:220rpx; */
+  align-items: center;
+  border:2rpx solid #EA5149;
+  margin-top:54rpx;
+  height:100rpx;
+  padding:40rpx;
+  color:#999999;
+}
+
+.top-up-page .money{
+  line-height:50rpx;
+  font-size:36rpx;
+  font-weight:bold;
+  color:#EA5149;
+}
+
+.color-red {
+  color:#EA5149;
+}
+.top-up-page .discount .proportion,
+.top-up-page .discount .giving,
+.top-up-page .discount .integral{
+  height:50rpx;
+  line-height:50rpx;
+  color: inherit;
+  font-size:30rpx;
+}
+.top-up-page .add{
+  position:absolute;
+  right:0rpx;
+  top:0rpx;
+  width:auto;
+  height:40rpx;
+  background:#EA5149;
+  color:#fff;
+  text-align:center;
+  font-size:24rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+}
+.active{
+  background:#EA5149;
+  color: #fff;
+}
+.active .money{
+  color:#fff;
+}
+.active .discount .proportion,.active .discount .giving,.active .discount .integral{
+  color:inherit;
+}
+.active .add{
+  position:absolute; 
+  background:#fff;
+  color: #EA5149;
+  right:0rpx;
+  top:0rpx;
+  z-index:99 !important;
+}

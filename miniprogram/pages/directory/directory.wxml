@@ -1,0 +1,28 @@
+<!--miniprogram/pages/directory/directory.wxml-->
+<view class="directory-page">
+  <text wx:if="{{isFirstLoadEnd && !dirList.length}}" class="directory-empty">当前小说还未上传章节，请耐心等候</text>
+    <view class="directory" wx:if="{{dirList.length > 0}}">
+      <text>目录 （共{{count}}章）</text>
+      <image src="/images/u577.png" mode="widthFix" catchtap="handleSort"></image>
+    </view>
+    <view wx:if="{{isFirstLoadEnd && dirList.length}}" class="button-group">
+      <button type="default" size="mini" plain="true"
+    disabled="{{!isHasPrve}}" bindtap="prveHander" hover-class="other-button-hover"> 上一页</button>
+        <button class="m-l-6" type="default" size="mini" plain="true"
+        disabled="{{!isLoadEnd}}" bindtap="nextHander" hover-class="other-button-hover"> 下一页</button>
+    </view>
+    <view class="dir-list">
+      <view wx:for="{{dirList}}" wx:key="item.chapter_id"  class="list {{cur_chapter_id == item.chapter_id ? 'active' : ''}}" data-item="{{item}}" bindtap="toReading">
+        <text class="title">{{item.chapter_name}}</text>
+        <text class="is-pay">{{item.is_pay != 0 ? '收费' : ''}}</text>
+      </view>
+    </view>
+     <view wx:if="{{isFirstLoadEnd && dirList.length && dirList.length > 15}}" class="button-group">
+     <button type="default" size="mini" plain="true"
+    disabled="{{!isHasPrve}}" bindtap="prveHander" hover-class="other-button-hover"> 上一页</button>
+        <button class="m-l-6" type="default" size="mini" plain="true"
+        disabled="{{!isLoadEnd}}" bindtap="nextHander" hover-class="other-button-hover"> 下一页</button>
+    </view>
+   <!-- <loading-more isHide="{{isHideLoadMore}}"></loading-more> -->
+</view>
+

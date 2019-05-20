@@ -1,0 +1,56 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/calc/calc",
+    "pages/impower/impower",
+    "pages/search/search",
+    "pages/store/store",
+    "pages/my/my",
+    "pages/recharge/recharge",
+    "pages/reading/reading",
+    "pages/detail/detail",
+    "pages/directory/directory",
+    "components/homebook/homebook",
+    "components/blank/blank",
+    "pages/list/list",
+    "pages/wxPay/wxPay",
+    "pages/record/record", 
+    "pages/service/service",
+    "pages/home/home",
+    "pages/invitation/invitation"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e94241",
+    "navigationBarTitleText": "满满大全",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#EA5149",
+    "list": [
+      {
+        "pagePath": "pages/store/store",
+        "text": "书架",
+        "iconPath": "/images/u219.png",
+        "selectedIconPath": "/images/u747.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "书城",
+        "iconPath": "/images/u752.png",
+        "selectedIconPath": "/images/u224.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/u229.png",
+        "selectedIconPath": "/images/u1064.png"
+      }
+    ]
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "request": 20000
+}
